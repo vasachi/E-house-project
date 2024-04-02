@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Assets/imgs/favicon.ico">
+    <title>Security checking - Dashboard </title>
+    <link rel="stylesheet" href="Assets/style/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        /* Add your custom styles for the table here */
+        #checkinCheckoutLogTable {
+          width: 100%;
+          border-collapse: collapse;
+        }
+        #checkinCheckoutLogTable th,
+        #checkinCheckoutLogTable td {
+          padding: 8px;
+          border: 1px solid #ddd;
+          text-align: left;
+        }
+        #checkinCheckoutLogTable th {
+          background-color: #f2f2f2;
+        }
+        .container {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.cards {
+  flex-basis: calc(75% - 20px);
+  margin-right: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 220px;
+  height: 180px;
+}
+
+.box {
+  text-align: center;
+}
+
+.icon-case {
+  text-align: center;
+}
+
+.content-2 {
+  width: 48%;
+  flex-basis: calc(25% - 20px);
+
+}
+
+.recent-payments,
+.new-students {
+  margin-top: 20px;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+    </style>
+
+</head>
+<body>
+    <header>
+        <nav class="sidebar">
+            <div class="logo">
+                <h5>KPLC check-in<div class="ttl_"></div></h5>
+            </div>
+            <i id="btn" class="material-symbols-outlined"> menu</i>
+            <ul class="nav-links">
+                <li>
+                    <a href="home.html">
+                        <i class="material-symbols-outlined">home</i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="dashborad.html">
+                        <i class="material-symbols-outlined">dashboard</i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="checkin.html">
+                        <i class="material-symbols-outlined">task_alt</i>
+                        <span>Checkin</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="checkout.html">
+                        <i class="material-symbols-outlined">cancel</i>
+                        <span>Checkout</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="register.html">
+                        <i class="material-symbols-outlined">app_registration</i>
+                        <span>Registration</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="account.html">
+                        <i class="material-symbols-outlined">account_circle</i>
+                        <span>Account</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="logout.php">
+                        <i class="material-symbols-outlined">logout</i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="content">
+                <div class="cards">
+                    <div class="card">
+                        <div class="box">
+                            <h1>2194</h1>
+                            <h3>Students</h3>
+                        </div>
+                        <div class="icon-case">
+                            <img src="students.png" alt="">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="box">
+                            <h1>53</h1>
+                            <h3>Teachers</h3>
+                        </div>
+                        <div class="icon-case">
+                            <img src="teachers.png" alt="">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="box">
+                            <h1>5</h1>
+                            <h3>Schools</h3>
+                        </div>
+                        <div class="icon-case">
+                            <img src="schools.png" alt="">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="box">
+                            <h1>350000</h1>
+                            <h3>Income</h3>
+                        </div>
+                        <div class="icon-case">
+                            <img src="income.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="content-2">
+                    <div class="recent-payments">
+                        <div class="title">
+                            <h2>Recent Payments</h2>
+                            <a href="#" class="btn">View All</a>
+                        </div>
+                        <table>
+                            <tr>
+                                <th>Name</th>
+                                <th>School</th>
+                                <th>Amount</th>
+                                <th>Option</th>
+                            </tr>
+                            <tr>
+                                <td>John Doe</td>
+                                <td>St. James College</td>
+                                <td>$120</td>
+                                <td><a href="#" class="btn">View</a></td>
+                            </tr>
+                            <tr>
+                                <td>John Doe</td>
+                                <td>St. James College</td>
+                                <td>$120</td>
+                                <td><a href="#" class="btn">View</a></td>
+                            </tr>
+                            <tr>
+                                <td>John Doe</td>
+                                <td>St. James College</td>
+                                <td>$120</td>
+                                <td><a href="#" class="btn">View</a></td>
+                            </tr>
+                            <tr>
+                                <td>John Doe</td>
+                                <td>St. James College</td>
+                                <td>$120</td>
+                                <td><a href="#" class="btn">View</a></td>
+                            </tr>
+                            <tr>
+                                <td>John Doe</td>
+                                <td>St. James College</td>
+                                <td>$120</td>
+                                <td><a href="#" class="btn">View</a></td>
+                            </tr>
+                            <tr>
+                                <td>John Doe</td>
+                                <td>St. James College</td>
+                                <td>$120</td>
+                                <td><a href="#" class="btn">View</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="new-students">
+                        <div class="title">
+                            <h2>New Students</h2>
+                            <a href="#" class="btn">View All</a>
+                        </div>
+                        <table>
+                            <tr>
+                                <th>Profile</th>
+                                <th>Name</th>
+                                <th>option</th>
+                            </tr>
+                            <tr>
+                                <td><img src="user.png" alt=""></td>
+                                <td>John Steve Doe</td>
+                                <td><img src="info.png" alt=""></td>
+                            </tr>
+                            <tr>
+                                <td><img src="user.png" alt=""></td>
+                                <td>John Steve Doe</td>
+                                <td><img src="info.png" alt=""></td>
+                            </tr>
+                            <tr>
+                                <td><img src="user.png" alt=""></td>
+                                <td>John Steve Doe</td>
+                                <td><img src="info.png" alt=""></td>
+                            </tr>
+                            <tr>
+                                <td><img src="user.png" alt=""></td>
+                                <td>John Steve Doe</td>
+                                <td><img src="info.png" alt=""></td>
+                            </tr>
+    
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="Assets/script/script.js"></script>
+</body>
+</html>
+
+<!-- <table id="checkinCheckoutLogTable">
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>Check-in Time</th>
+        <th>Check-out Time</th>
+      </tr>
+    </thead>
+    <tbody id="checkinCheckoutLogTable"></tbody>
+</table> -->

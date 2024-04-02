@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Assets/imgs/favicon.ico">
+    <title>Security checking - Checkin </title>
+    <link rel="stylesheet" href="Assets/style/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <header>
+        <nav class="sidebar">
+            <div class="logo">
+                <h5>KPLC check-in<div class="ttl_"></div></h5>
+            </div>
+            <i id="btn" class="material-symbols-outlined"> menu</i>
+            <ul class="nav-links">
+                <li>
+                    <a href="home.html">
+                        <i class="material-symbols-outlined">home</i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="dashborad.html">
+                        <i class="material-symbols-outlined">dashboard</i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="checkin.html">
+                        <i class="material-symbols-outlined">task_alt</i>
+                        <span>Checkin</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="checkout.html">
+                        <i class="material-symbols-outlined">cancel</i>
+                        <span>Checkout</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="register.html">
+                        <i class="material-symbols-outlined">app_registration</i>
+                        <span>Registration</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="account.html">
+                        <i class="material-symbols-outlined">account_circle</i>
+                        <span>Account</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="logout.php">
+                        <i class="material-symbols-outlined">logout</i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h2> Check-in <br> </h2>
+            <hr>
+            <h2><br></h2>
+            <form action="/checkin" method="post">
+                <div class="form-group">
+                    <label for="personal_id">Personal ID:</label>
+                    <input type="text" class="form-control" id="personal_id" name="personal_id" required">
+                </div>
+                <div class="form-group">
+                    <label for="devices">Devices:</label>
+                    <select multiple class="form-control" id="devices" name="devices[]">
+                        <?php
+                        // Fetch devices from the database
+                        $personal_id = $_REQUEST['personal_id'];
+                        $devicesSql = "SELECT * FROM devices WHERE `STAFF NO/ID`='$personal_id'";
+                        $devicesResult = $conn->query($devicesSql);
+
+                        if ($devicesResult->num_rows > 0) {
+                            while ($device = $devicesResult->fetch_assoc()) {
+                                echo "<option value='" . $device['DEVICE SERIAL NUMBER'] . "'>" . $device['DEVICE SERIAL NUMBER'] . "</option>";
+                            }
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="vehicle">Vehicle:</label>
+                    <select class="form-control" id="vehicle" name="vehicle">
+                        <?php
+                        // Fetch vehicles from the database
+                        $vehiclesSql = "SELECT * FROM vehicles WHERE `STAFF NO/ID`='$personal_id'";
+                        $vehiclesResult = $conn->query($vehiclesSql);
+
+                        if ($vehiclesResult->num_rows > 0) {
+                            while ($vehicle = $vehiclesResult->fetch_assoc()) {
+                                echo "<option value='" . $vehicle['VEHICLE NUMBER PLATE'] . "'>" . $vehicle['VEHICLE NUMBER PLATE'] . "</option>";
+                            }
+                        }
+
+                        $conn->close();
+                        ?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" class="form-control" id="date" name="date" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Check-in</button>
+            </form>
+        </div>
+    </main>
+    <!---For the main section provide the CSS and the JavaScript codes that relate to it.-->
+    <footer></footer>
+    <script src="Assets/script/script.js"></script>
+</body>
+
+</html>

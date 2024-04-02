@@ -1,0 +1,50 @@
+<?php
+$servername = "localhost";
+$username = "Admin1";
+$password = "shivachi";
+$dbname = "checking_system";
+
+// Create a database connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check the database connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);}
+    // Check if form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get username and password from form
+    $input_username = $_POST['username'];
+    $input_password = md5($_POST['password']);
+
+    // Prepare SQL statement to retrieve user data
+    $stmt = $conn->prepare("SELECT * FROM tbladmin WHERE user_name = ?");
+    $stmt->bind_param("s", $input_username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // Check if username exists in database
+    if ($result->num_rows == 1) {
+        // Username exists, fetch associated row
+        $row = $result->fetch_assoc();
+
+        // Verify password
+        if (password_verify($input_password, $row['password'])) {
+            // Password is correct, redirect user to dashboard or desired page
+            header("Location: home.html");
+            exit();
+        } else {
+            // Password is incorrect, set error message
+            $error_message = "Incorrect password";
+        }
+    } else {
+        // Username doesn't exist, set error message
+        $error_message = "Username not found";
+    }
+}
+
+// Close database connection
+$conn->close();
+
+?>
+
+

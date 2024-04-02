@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="Assets/style/styles.css">
+<script>
+let attempts=3;
+function myfunction()
+{
+var un=document.forms["myform"]["uname"].value;
+var pw=document.forms["myform"]["pass"].value;
+if(un=="admin1" && pw=="shivachi")
+{
+alert("Admin1 welcome to the E-House Computer And Vehicle Checkin System");
+window.location.href="home.html";
+}
+
+else
+{
+attempts --;//this decrements the tries to log into the system.
+alert("invalid username and password,You have left "+attempts+" attempt" );// Disabling fields after 3 attempts.
+if( attempts == 0)
+{
+	document.getElementById("uname").disabled = true;
+	document.getElementById("pass").disabled = true;
+	document.getElementById("logButton").disabled = true;
+	document.getElementById("reset").disable=true;
+	document.body.style.backgroundColor = "black";
+	return false;
+}
+}
+
+</script>
+</head>
+<body>
+  <aside>
+  </aside>
+  <div class="login-container">
+    <img src="Assets/imgs/favicon.ico" alt="Logo">
+    <div class="form-heading">Check in system<hr>Admin  Login <br> </div>
+    <form class="login-form" name"myform" method="post">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="uname" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="pass" required>
+      </div>
+      
+      <div class="form-group">
+        <input type="button" value="Login" onclick="myfunction()">
+      </div>
+      <div class="form-signup"> 
+        <P style="font-size: 25px;">or</P>
+        <p>Don't have an account? </p>
+        <button>Contact ICT admin</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
