@@ -12,7 +12,7 @@ One potential future enhancement of the system is to include parking allotment n
 
 
 *Contributors*
-- Johna SHivachi(Vasachi)
+- Johna Shivachi(Vasachi)
 - Job Tanui
 
   Feel free to explore the repository. If you have a similar project and would like me to collaborrate feel free to contact me.
